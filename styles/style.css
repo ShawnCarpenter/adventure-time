@@ -124,4 +124,6 @@ footer {
 
   .hidden {
       display: none;
+      cursor: not-allowed;
   }
+

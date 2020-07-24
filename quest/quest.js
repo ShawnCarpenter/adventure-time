@@ -18,19 +18,30 @@ form.addEventListener('submit', (e) => {
     const formData = new FormData(form);
     const choice = formData.get('choices');
     const choiceResults = findById(quest.choices, choice);
-    const user = loadUser();
     const questEl = document.getElementById('quest');
-    const resultsEl = document.createElement('div');
-    const returnButtonEl = document.createElement('button');
+    
+    const user = loadUser();
 
-    resultsEl.textContent = choiceResults.result;
-    returnButtonEl.addEventListener('click', () => {window.location = '/map';});
-    returnButtonEl.textContent = 'Return to map';
-    resultsEl.append(returnButtonEl);
+    const resultsEl = renderChoice(choiceResults);
     questEl.append(resultsEl);
 
-    user.hp += choiceResults.hp;
-    user.gold += choiceResults.gold;
+    updateUser(user, choiceResults);
     saveUser(user);
     
 });
+
+function renderChoice(choiceResults) {
+    const resultsEl = document.createElement('div');
+    const returnButtonEl = document.createElement('button');
+    resultsEl.textContent = choiceResults.result;
+    returnButtonEl.addEventListener('click', () => { window.location = '/map'; });
+    returnButtonEl.textContent = 'Return to map';
+    resultsEl.append(returnButtonEl);
+    return resultsEl;
+}
+
+function updateUser(user, choiceResults) {
+    user.hp += choiceResults.hp;
+    user.gold += choiceResults.gold;
+    user.completed[quest.id] = true;
+}
