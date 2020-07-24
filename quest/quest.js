@@ -19,12 +19,18 @@ form.addEventListener('submit', (e) => {
     const choice = formData.get('choices');
     const choiceResults = findById(quest.choices, choice);
     const user = loadUser();
-    
-    const resultsDiv = document.createElement('div');
-    resultsDiv.textContent = choiceResults.result;
-    questEl.append(resultsDiv);
+    const questEl = document.getElementById('quest');
+    const resultsEl = document.createElement('div');
+    const returnButtonEl = document.createElement('button');
+
+    resultsEl.textContent = choiceResults.result;
+    returnButtonEl.addEventListener('click', () => {window.location = '/map';});
+    returnButtonEl.textContent = 'Return to map';
+    resultsEl.append(returnButtonEl);
+    questEl.append(resultsEl);
+
     user.hp += choiceResults.hp;
     user.gold += choiceResults.gold;
     saveUser(user);
-
+    
 });
