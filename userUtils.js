@@ -9,10 +9,12 @@ export function makeUser(formData) {
 }
 
 export function saveUser(user) {
-    localStorage.setItem('USER', JSON.stringify(user));
+    const stringyUser = JSON.stringify(user);
+    localStorage.setItem('USER', stringyUser);
 }
 
 export function loadUser(){
-    return JSON.parse(localStorage.getItem('USER'));
+    const rawUser = localStorage.getItem('USER');
+    return JSON.parse(rawUser);
     
 }
