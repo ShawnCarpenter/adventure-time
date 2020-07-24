@@ -7,7 +7,7 @@ const map = document.querySelector('.map');
 
 const user = loadUser();
 
-if (user.hp <= 0) {
+if (user.hp <= 0 || Object.keys(user.completed).length === quests.length) {
     window.location = '../results';
 }
 userStats.append(renderStats(user));
