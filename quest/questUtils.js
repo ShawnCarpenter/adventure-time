@@ -5,10 +5,13 @@ export function renderQuest(quest) {
     const titleDivEl = document.createElement('div');
     titleDivEl.textContent = quest.title;
     
+    const descriptionEl = document.createElement('div');
+    descriptionEl.textContent = quest.description;
     const imgEl = document.createElement('img');
     imgEl.src = quest.image;
 
     const formEl = document.createElement('form');
+    
     quest.choices.forEach(choice => {
         const labelEl = document.createElement('label');
 
@@ -26,7 +29,7 @@ export function renderQuest(quest) {
     buttonEl.type = 'submit';
     buttonEl.textContent = 'Choose Wisely';
     formEl.append(buttonEl);
-    sectionEl.append(titleDivEl, imgEl, formEl);
+    sectionEl.append(titleDivEl, descriptionEl, imgEl, formEl);
     return sectionEl;
 }
 
@@ -39,3 +42,5 @@ export function findById(array, id) {
     });
     return foundItem;
 }
+
+

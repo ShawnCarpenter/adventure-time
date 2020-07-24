@@ -7,3 +7,12 @@ export function makeUser(formData) {
         completed: {}
     };
 }
+
+export function saveUser(user) {
+    localStorage.setItem('USER', JSON.stringify(user));
+}
+
+export function loadUser(){
+    return JSON.parse(localStorage.getItem('USER'));
+    
+}

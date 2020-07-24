@@ -10,7 +10,7 @@ const test = QUnit.test;
 test('time to test a function', (expect) => {
     //Arrange
     // Set up your arguments and expectations
-    const expected = '<section id="quest"><div>A Problem Dragon</div><img src="dragon.jpg"><form><label><span>Get the hell out of the village</span><input type="radio" name="choices" value="run"></label><label><span>Fiiiiiggghhhttt!</span><input type="radio" name="choices" value="fight"></label><label><span>Emulate that guy from LOR who shot an arrow</span><input type="radio" name="choices" value="archer"></label><button type=\"submit\">Choose Wisely</button></form></section>';
+    const expected = '<section id="quest"><div>A Problem Dragon</div><img src="dragon.jpg"><form><label><span>Get the hell out of the village</span><input type="radio" name="choices" value="run"></label><label><span>Fiiiiiggghhhttt!</span><input type="radio" name="choices" value="fight"></label><label><span>Emulate that guy from LOR who shot an arrow</span><input type="radio" name="choices" value="archer"></label><button type="submit">Choose Wisely</button></form></section>';
     
     //Act 
     // Call the function you're testing and set the result to a const

@@ -1,13 +1,30 @@
 import quests from '../data.js';
 import { renderQuest, findById } from './questUtils.js';
-const main = document.querySelector('main');
+import { loadUser, saveUser } from '../userUtils.js';
+const mainEl = document.querySelector('main');
 
 const params = new URLSearchParams(window.location.search);
-console.log(params);
 const questId = params.get('id');
-console.log(questId);
+
 
 const quest = findById(quests, questId);
-console.log(quest)
 const section = renderQuest(quest);
-main.append(section);
+mainEl.append(section);
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const choice = formData.get('choices');
+    const choiceResults = findById(quest.choices, choice);
+    const user = loadUser();
+    
+    const resultsDiv = document.createElement('div');
+    resultsDiv.textContent = choiceResults.result;
+    questEl.append(resultsDiv);
+    user.hp += choiceResults.hp;
+    user.gold += choiceResults.gold;
+    saveUser(user);
+
+});
