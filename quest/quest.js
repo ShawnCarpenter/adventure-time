@@ -34,7 +34,7 @@ function renderChoice(choiceResults) {
     const resultsEl = document.createElement('div');
     const returnButtonEl = document.createElement('button');
     resultsEl.textContent = choiceResults.result;
-    returnButtonEl.addEventListener('click', () => { window.location = '/map'; });
+    returnButtonEl.addEventListener('click', () => { window.location = '../map'; });
     returnButtonEl.textContent = 'Return to map';
     resultsEl.append(returnButtonEl);
     return resultsEl;
