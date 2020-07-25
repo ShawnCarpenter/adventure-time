@@ -27,7 +27,7 @@ test('renderStats should take a user object and return an HTML section with the 
 test('renderQuestLink should take a quest and a user and return an a element with the url for the quest ', (expect) => {
     //Arrange
     // Set up your arguments and expectations
-    const expected1 = '<a href="/quest/?id=treasure">The Golden Treasure</a>';
+    const expected1 = '<a href="../quest/?id=treasure">The Golden Treasure</a>';
     const expected2 = '<a style="text-decoration: line-through; cursor: not-allowed;">A Den of Monsters</a>';
 
     const user = { name: 'Shawn', class: 'wizard', hp: 20, gold: 100, completed: { monsters:true, dragons:true } };
