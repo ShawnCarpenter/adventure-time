@@ -34,7 +34,7 @@ export function renderQuestLink(quest, user) {
         link.style.cursor = 'not-allowed';
     }
     else {
-        link.href = `/quest/?id=${quest.id}`;
+        link.href = `../quest/?id=${quest.id}`;
     }
     return link;
 }
